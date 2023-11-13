@@ -16,8 +16,12 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public void saveUser(User user) {
+    public ResponseStatus saveUser(User user) {
+        if (userRepository.existsByLogin(user.getLogin()))  {
+            return ResponseStatus.ERROR;
+        }
         userRepository.save(user);
+        return ResponseStatus.OK;
     }
 
     public List<User> getAllUsers() {
