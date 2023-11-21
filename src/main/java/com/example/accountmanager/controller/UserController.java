@@ -1,7 +1,7 @@
 package com.example.accountmanager.controller;
 
 import com.example.accountmanager.model.User;
-import com.example.accountmanager.service.ResponseStatus;
+import com.example.accountmanager.response.Response;
 import com.example.accountmanager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public ResponseStatus addUser(@RequestBody User user) {
+    public Response addUser(@RequestBody User user) {
         return userService.saveUser(user);
     }
 

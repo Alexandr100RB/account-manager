@@ -1,8 +1,8 @@
 package com.example.accountmanager.controller;
 
 import com.example.accountmanager.model.Hobby;
+import com.example.accountmanager.response.Response;
 import com.example.accountmanager.service.HobbyService;
-import com.example.accountmanager.service.ResponseStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +20,7 @@ public class HobbyController {
     }
 
     @PostMapping("/add")
-    public ResponseStatus addHobby(@RequestBody Hobby hobby) {
+    public Response addHobby(@RequestBody Hobby hobby) {
         return hobbyService.saveHobby(hobby);
     }
 
